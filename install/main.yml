@@ -1,0 +1,34 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+  tags: [ shell, dotfiles, rcm ]
+  sudo: yes
+
+  tasks:
+    - name: rcm | repository added
+      apt_repository:
+        repo: 'ppa:martin-frost/thoughtbot-rcm'
+        update_cache: yes
+
+    - name: rcm | rcm installed
+      apt:
+        pkg: rcm
+        state: present
+
+
+- hosts: 127.0.0.1
+  connection: local
+  tags: [ shell, tmux ]
+  sudo: yes
+
+  tasks:
+    - name: tmux | repository added
+      apt_repository:
+        repo: 'ppa:pi-rho/dev'
+        update_cache: yes
+
+    - name: tmux | tmux installed
+      apt:
+        pkg: tmux
+        state: present

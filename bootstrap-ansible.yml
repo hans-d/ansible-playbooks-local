@@ -1,0 +1,16 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+  tags: [ common ]
+
+  tasks:
+  - name: ubuntu | base packages installed
+    apt:
+      name: '{{ item }}'
+      state: present
+    with_items:
+      - apt-transport-https
+      - python-setuptools
+      - python-pycurl
+      - python-pip

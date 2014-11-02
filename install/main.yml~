@@ -1,0 +1,13 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+  tags: [ dotfiles, rcm ]
+
+  tasks:
+    - name: rcm | repository added
+      
+
+    sudo apt-add-repository ppa:martin-frost/thoughtbot-rcm
+sudo apt-get update
+sudo apt-get install rcm
